@@ -6,7 +6,7 @@ using UnityEngine;
 public class TimeManager : Singleton<TimeManager>
 {
     [SerializeField] private float _maxTime = 300;
-    private float _currentTime = 300;
+    private float _currentTime = 0;
     private bool _gameOver = false;
     private bool _paused = false;
 
@@ -51,7 +51,7 @@ public class TimeManager : Singleton<TimeManager>
     // Update is called once per frame
     void Update()
     {
-        if (_currentTime >= _maxTime)
+        if (CurrentTime >= MaxTime)
         {
             _gameOver = true;
         }

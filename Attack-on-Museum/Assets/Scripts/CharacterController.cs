@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField] private float _maxSpeed = 100;
+    [SerializeField] private float _maxSpeed = 5;
     [SerializeField] private float _maxWeight = 100;
     [SerializeField] private float _currentWeight = 0;
     [SerializeField] private List<LootableObjects> _objectsLooted = new List<LootableObjects>();
     [SerializeField] private bool _oldLady = false;
+
+    public float MaxWeight => _maxWeight;
+    public float MaxSpeed => _maxSpeed;
+    public float CurrentWeight
+    {
+        get
+        {
+            return _currentWeight;
+        }
+        set
+        {
+            _currentWeight = Mathf.Clamp(value, 0, _maxWeight-5);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +39,8 @@ public class CharacterController : MonoBehaviour
             MoveDown();
             MoveRight();
             MoveLeft();
+            PlusWeight();
+            MinusWeight();
         }
     }
 
@@ -32,7 +48,7 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Z))
         {
-            transform.position = transform.position + (Vector3.forward) * _maxSpeed * (1 - _currentWeight / _maxWeight) * Time.deltaTime;
+            transform.position = transform.position + (Vector3.up) * MaxSpeed * (1 - (CurrentWeight / MaxWeight)) * Time.deltaTime;
         }
     }
 
@@ -40,7 +56,7 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position = transform.position + (Vector3.back) * _maxSpeed * (1 - _currentWeight / _maxWeight) * Time.deltaTime;
+            transform.position = transform.position + (Vector3.down) * MaxSpeed * (1 - (CurrentWeight / MaxWeight)) * Time.deltaTime;
         }
     }
 
@@ -48,7 +64,7 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position = transform.position + (Vector3.right) * _maxSpeed * (1 - _currentWeight / _maxWeight) * Time.deltaTime;
+            transform.position = transform.position + (Vector3.right) * MaxSpeed * (1 - (CurrentWeight / MaxWeight)) * Time.deltaTime;
         }
     }
 
@@ -56,7 +72,23 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.position = transform.position + (Vector3.left) * _maxSpeed * (1 - _currentWeight / _maxWeight) * Time.deltaTime;
+            transform.position = transform.position + (Vector3.left) * MaxSpeed * (1 - (CurrentWeight / MaxWeight)) * Time.deltaTime;
+        }
+    }
+
+    private void PlusWeight()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            CurrentWeight += 10;
+        }
+    }
+
+    private void MinusWeight()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            CurrentWeight -= 10;
         }
     }
 }
