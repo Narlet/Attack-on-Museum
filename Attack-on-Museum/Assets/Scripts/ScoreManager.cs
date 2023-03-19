@@ -8,7 +8,33 @@ public class ScoreManager : Singleton<ScoreManager>
     private float _bestScore = 0;
     private float _currentScore = 0;
     private bool[] _keyItems = new bool[4];
+    [SerializeField] private GameObject _character = null;
+    [SerializeField] private CharacterController _characterController = null;
 
+    public GameObject Character
+    {
+        get 
+        {
+            return _character; 
+        }
+
+        set
+        {
+            _character = value;
+        }
+    }
+    public CharacterController CharacterController
+    {
+        get
+        {
+            return _characterController;
+        }
+
+        set
+        {
+            _characterController = value;
+        }
+    }
     public float BestScore
     {
         get
@@ -46,15 +72,4 @@ public class ScoreManager : Singleton<ScoreManager>
     }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

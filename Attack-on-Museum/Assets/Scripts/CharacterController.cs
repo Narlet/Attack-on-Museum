@@ -24,10 +24,22 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    public bool OldLady
+    {
+        get
+        {
+            return _oldLady;
+        }
+        set
+        {
+            _oldLady = value;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-      
+        ScoreManager.Instance.CharacterController = this;
     }
 
     // Update is called once per frame
@@ -89,6 +101,17 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.KeypadMinus))
         {
             CurrentWeight -= 10;
+        }
+    }
+
+    public void Grab(LootableObjects obj)
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            _objectsLooted.Add(obj);
+            CurrentWeight += obj.Data.Weight;
+            Destroy(obj.gameObject);
+            Debug.Log("Object Looted : " + obj.gameObject.name);
         }
     }
 }

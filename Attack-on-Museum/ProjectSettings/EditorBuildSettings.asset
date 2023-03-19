@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheoLevelTest.unity
     guid: 40304831e2dbfee46b192e328420f2db
+  - enabled: 1
+    path: Assets/Scenes/HugoLevelDesign.unity
+    guid: 17ae930e67cf1164799759f1094469d2
   m_configObjects: {}
