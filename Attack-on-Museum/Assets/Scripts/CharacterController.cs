@@ -7,8 +7,9 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _maxSpeed = 5;
     [SerializeField] private float _maxWeight = 100;
     [SerializeField] private float _currentWeight = 0;
-    [SerializeField] private List<LootableObjects> _objectsLooted = new List<LootableObjects>();
+    [SerializeField] private List<LootableObjectsData> _objectsLooted = new List<LootableObjectsData>();
     [SerializeField] private bool _oldLady = false;
+    [SerializeField] private GameObject _lootablePrefab = null;
 
     public float MaxWeight => _maxWeight;
     public float MaxSpeed => _maxSpeed;
@@ -53,6 +54,7 @@ public class CharacterController : MonoBehaviour
             MoveLeft();
             PlusWeight();
             MinusWeight();
+            Drop();
         }
     }
 
@@ -106,12 +108,24 @@ public class CharacterController : MonoBehaviour
 
     public void Grab(LootableObjects obj)
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        _objectsLooted.Add(obj.Data);
+        CurrentWeight += obj.Data.Weight;
+        Destroy(obj.gameObject);
+        Debug.Log("Object Looted : " + obj.gameObject.name);
+    }
+
+    private void Drop()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            _objectsLooted.Add(obj);
-            CurrentWeight += obj.Data.Weight;
-            Destroy(obj.gameObject);
-            Debug.Log("Object Looted : " + obj.gameObject.name);
+            if (_objectsLooted.Count != 0)
+            {
+                GameObject obj = _lootablePrefab;
+                obj.GetComponent<LootableObjects>().Data = _objectsLooted[0];
+                Instantiate(obj, transform.position, transform.rotation);
+                _currentWeight -= _objectsLooted[0].Weight;
+                _objectsLooted.RemoveAt(0);
+            }
         }
     }
 }
