@@ -7,14 +7,30 @@ public class LootableObjects : MonoBehaviour
     [SerializeField] private float _grabRange = 1;
     [SerializeField] private LootableObjectsData _data = null;
     [SerializeField] private CircleCollider2D _grabCollider = null;
+    [SerializeField] private SpriteRenderer _spriteRender = null;
+    [SerializeField] private float _maxTimeBeforeGrab = 2f;
+    private float _currentTimeBeforeGrab = 0f;
 
-    public LootableObjectsData Data => _data;
+    public LootableObjectsData Data
+    {
+        get
+        {
+            return _data;
+        }
+
+        set
+        {
+            _data = value;
+        }
+    }
 
     // Start is called before the first frame update
 
     private void Awake()
     {
         _grabCollider.radius = _grabRange;
+        _spriteRender.sprite = _data.Sprite;
+        _grabCollider.enabled = false;
     }
     void Start()
     {
@@ -24,19 +40,24 @@ public class LootableObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject == ScoreManager.Instance.Character)
+        if (!_grabCollider.enabled)
         {
-            ScoreManager.Instance.CharacterController.Grab(this);
+            if (_currentTimeBeforeGrab >= _maxTimeBeforeGrab)
+            {
+                _grabCollider.enabled = true;
+            }
+            else
+            {
+                _currentTimeBeforeGrab += Time.deltaTime;
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject);
+        if (other.gameObject == ScoreManager.Instance.Character)
+        {
+            ScoreManager.Instance.CharacterController.Grab(this);
+        }
     }
 }
