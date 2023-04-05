@@ -53,12 +53,12 @@ public class TimeManager : Singleton<TimeManager>
     {
         if (CurrentTime >= MaxTime)
         {
-            _gameOver = true;
+            GameOver = true;
         }
         else
         {
-            if(!_paused)
-            _currentTime += Time.deltaTime;
+            if(!Paused)
+            CurrentTime += Time.deltaTime;
         }
     }
 }

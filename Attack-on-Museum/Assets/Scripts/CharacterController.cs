@@ -56,6 +56,7 @@ public class CharacterController : MonoBehaviour
             MinusWeight();
             Drop();
         }
+        Pause();
     }
 
     private void MoveUp()
@@ -127,5 +128,10 @@ public class CharacterController : MonoBehaviour
                 _objectsLooted.RemoveAt(0);
             }
         }
+    }
+
+    private void Pause()
+    {
+        TimeManager.Instance.Paused = !TimeManager.Instance.Paused;
     }
 }
