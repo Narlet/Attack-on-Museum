@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TimeManager : Singleton<TimeManager>
 {
-    [SerializeField] private float _maxTime = 300;
+    [SerializeField] private float _maxTime = 120;
     private float _currentTime = 0;
     private bool _gameOver = false;
     private bool _paused = false;
@@ -53,11 +53,12 @@ public class TimeManager : Singleton<TimeManager>
     {
         if (CurrentTime >= MaxTime)
         {
+            ScoreManager.Instance.CurrentScore = 0;
             GameOver = true;
         }
         else
         {
-            if(!Paused)
+            if(!Paused | !GameOver)
             CurrentTime += Time.deltaTime;
         }
     }

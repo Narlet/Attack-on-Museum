@@ -111,6 +111,7 @@ public class CharacterController : MonoBehaviour
     {
         _objectsLooted.Add(obj.Data);
         CurrentWeight += obj.Data.Weight;
+        ScoreManager.Instance.CurrentScore += obj.Data.Price;
         Destroy(obj.gameObject);
         Debug.Log("Object Looted : " + obj.gameObject.name);
     }
@@ -125,6 +126,7 @@ public class CharacterController : MonoBehaviour
                 obj.GetComponent<LootableObjects>().Data = _objectsLooted[0];
                 Instantiate(obj, transform.position, transform.rotation);
                 _currentWeight -= _objectsLooted[0].Weight;
+                ScoreManager.Instance.CurrentScore -= _objectsLooted[0].Price;
                 _objectsLooted.RemoveAt(0);
             }
         }
