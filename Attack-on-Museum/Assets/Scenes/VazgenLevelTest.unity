@@ -207,7 +207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 59450361}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: Credits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &59450361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +273,7 @@ MonoBehaviour:
   _newGameLevel: Level1
   _menuCredits: {fileID: 1401243750}
   _mainMenu: {fileID: 373163027}
+  _menuPause: {fileID: 0}
 --- !u!1 &68196347
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &68196348
 Transform:
   m_ObjectHideFlags: 0
@@ -563,7 +576,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 295355794}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: BoutonQuit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &295355794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,7 +643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &373163028
 Transform:
   m_ObjectHideFlags: 0
@@ -731,7 +756,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 419501271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &419501271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,6 +1083,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493115472}
   m_CullTransparentMesh: 1
+--- !u!1 &496451614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496451616}
+  - component: {fileID: 496451615}
+  m_Layer: 0
+  m_Name: ---BoutonUi---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &496451615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496451614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda02b2f9c39ac241b05f040f09483de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _newGameLevel: Level1
+  _menuCredits: {fileID: 1401243750}
+  _mainMenu: {fileID: 373163027}
+  _menuPause: {fileID: 68196347}
+--- !u!4 &496451616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496451614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 316.42233, y: 306.84216, z: 12.820794}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &505997031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1214,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 505997034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &505997034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,9 +1350,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: fda02b2f9c39ac241b05f040f09483de, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: NewGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1318,6 +1415,7 @@ MonoBehaviour:
   _newGameLevel: Level1
   _menuCredits: {fileID: 1401243750}
   _mainMenu: {fileID: 373163027}
+  _menuPause: {fileID: 0}
 --- !u!1 &627919585
 GameObject:
   m_ObjectHideFlags: 0
@@ -12758,7 +12856,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1095563867}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: BoutonQuit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1095563867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12812,6 +12922,7 @@ MonoBehaviour:
   _newGameLevel: Level1
   _menuCredits: {fileID: 1401243750}
   _mainMenu: {fileID: 373163027}
+  _menuPause: {fileID: 0}
 --- !u!1 &1301792795
 GameObject:
   m_ObjectHideFlags: 0
@@ -13620,7 +13731,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1685362256}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1685362256
 MonoBehaviour:
   m_ObjectHideFlags: 0
