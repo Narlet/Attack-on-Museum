@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +10,14 @@ public class BouttonUI : MonoBehaviour
     [SerializeField] private GameObject _menuCredits = null;
     [SerializeField] private GameObject _mainMenu = null;
     [SerializeField] private GameObject _menuPause = null;
-    private bool _isPaused = false;
+    [SerializeField] private GameObject _menuGameOver = null;
+    [SerializeField] private TextMeshProUGUI _scoreUI = null;
 
-
+    private void Start()
+    {
+        TimeManager.Instance.OnGameOver += GameOver;
+        TimeManager.Instance.OnPaused += Pause;
+    }
 
     public void NewGameButton()
     {
@@ -37,31 +43,30 @@ public class BouttonUI : MonoBehaviour
 
     public void Pause()
     {
-        _menuPause.SetActive(true);
-        Time.timeScale = 0;
-        _isPaused = true;
+        if (TimeManager.Instance.Paused)
+        {
+            _menuPause.SetActive(true);
+        }
+        else
+        {
+            _menuPause.SetActive(false);
+        }
     }
 
     public void Resume()
     {
         _menuPause.SetActive(false);
-        Time.timeScale = 1;
-        _isPaused = false;
+        TimeManager.Instance.Paused = false;
+    }
+
+    public void GameOver()
+    {
+        _menuGameOver.SetActive(true);
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            if (_isPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        _scoreUI.text = "Score : " + ScoreManager.Instance.CurrentScore.ToString();
     }
 }
 

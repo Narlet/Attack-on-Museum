@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PersistentManager.unity
+    guid: c8baa02ab640ac04c8d2b96ddba51ff1
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -14,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HugoLevelDesign.unity
     guid: 17ae930e67cf1164799759f1094469d2
+  - enabled: 1
+    path: Assets/Scenes/VazgenLevelTest.unity
+    guid: f3aaf75eae4504540a6fec2811855d40
   m_configObjects: {}

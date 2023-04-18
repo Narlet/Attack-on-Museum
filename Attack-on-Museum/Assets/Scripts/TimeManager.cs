@@ -1,4 +1,5 @@
 using Engine.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,13 @@ public class TimeManager : Singleton<TimeManager>
         set
         {
             _gameOver = value;
+            if(_onGameOver != null)
+            {
+                if (GameOver)
+                {
+                    _onGameOver();
+                }
+            }
         }
     }
 
@@ -45,8 +53,42 @@ public class TimeManager : Singleton<TimeManager>
         set
         {
             _paused = value;
+            if (_onPaused != null)
+            {
+                _onPaused();
+            }
         }
     }
+
+
+    #region Events
+    private event Action _onGameOver = null;
+    public event Action OnGameOver
+    {
+        add
+        {
+            _onGameOver -= value;
+            _onGameOver += value;
+        }
+        remove
+        {
+            _onGameOver -= value;
+        }
+    }
+    private event Action _onPaused = null;
+    public event Action OnPaused
+    {
+        add
+        {
+            _onPaused -= value;
+            _onPaused += value;
+        }
+        remove
+        {
+            _onPaused -= value;
+        }
+    }
+    #endregion Events
 
     // Update is called once per frame
     new void Update()
