@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a1a62d5c35fd7439f19960cfd797b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: TheoLevelTest
+  _sceneName: HugoLevelDesign
 --- !u!4 &2017900657
 Transform:
   m_ObjectHideFlags: 0
