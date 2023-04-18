@@ -10,6 +10,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private List<LootableObjectsData> _objectsLooted = new List<LootableObjectsData>();
     [SerializeField] private bool _oldLady = false;
     [SerializeField] private GameObject _lootablePrefab = null;
+    [SerializeField] private Rigidbody2D _rb = null;
 
     public float MaxWeight => _maxWeight;
     public float MaxSpeed => _maxSpeed;
@@ -46,20 +47,17 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!TimeManager.Instance.Paused || !TimeManager.Instance.GameOver)
+        Move();
+        Pause();
+        if (!TimeManager.Instance.Paused && !TimeManager.Instance.GameOver)
         {
-            MoveUp();
-            MoveDown();
-            MoveRight();
-            MoveLeft();
             PlusWeight();
             MinusWeight();
             Drop();
         }
-        Pause();
     }
 
-    private void MoveUp()
+/*    private void MoveUp()
     {
         if (Input.GetKey(KeyCode.Z))
         {
@@ -89,6 +87,31 @@ public class CharacterController : MonoBehaviour
         {
             transform.position = transform.position + (Vector3.left) * MaxSpeed * (1 - (CurrentWeight / MaxWeight)) * Time.deltaTime;
         }
+    }
+*/
+    private void Move()
+    {
+        Vector2 direction = Vector2.zero;
+        if (!TimeManager.Instance.Paused && !TimeManager.Instance.GameOver)
+        {
+            if (Input.GetKey(KeyCode.Z))
+            {
+                direction.y = 1;
+            }
+            if (Input.GetKey(KeyCode.Q))
+            {
+                direction.x = -1;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                direction.y = -1;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                direction.x = 1;
+            }
+        }
+        _rb.velocity = direction * MaxSpeed * (1 - (CurrentWeight / MaxWeight));
     }
 
     private void PlusWeight()
@@ -134,6 +157,9 @@ public class CharacterController : MonoBehaviour
 
     private void Pause()
     {
-        TimeManager.Instance.Paused = !TimeManager.Instance.Paused;
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TimeManager.Instance.Paused = !TimeManager.Instance.Paused;
+        }
     }
 }
