@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afbf1ba10840b1245b497eee8792fd64, type: 3}
-  m_Name: PropsMA_UndyneArmor
+  m_Name: PropsPH_Shoes
   m_EditorClassIdentifier: 
   _weight: 0
   _price: 0
-  _sprite: {fileID: 21300000, guid: 8c9511be1114c944992baf77ab783381, type: 3}
+  _sprite: {fileID: 21300000, guid: 7fb1d2896f140cc48bc7a525f8089476, type: 3}
