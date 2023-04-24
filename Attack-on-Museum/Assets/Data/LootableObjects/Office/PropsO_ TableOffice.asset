@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weight: 0
   _price: 0
-  _sprite: {fileID: 21300000, guid: 73b24ba70b9ff734ba22cd12390e73ab, type: 3}
+  _sprite: {fileID: 21300000, guid: 8e0cbc631cc5be649b2e1b0dfaeaa268, type: 3}
