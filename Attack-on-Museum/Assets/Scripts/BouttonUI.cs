@@ -21,6 +21,8 @@ public class BouttonUI : MonoBehaviour
 
     public void NewGameButton()
     {
+        TimeManager.Instance.CurrentTime = 0;
+        _menuGameOver.SetActive(false);
         TimeManager.Instance.GameOver = false;
         TimeManager.Instance.Paused = false;
         SceneManager.LoadScene(_newGameLevel);
@@ -39,6 +41,9 @@ public class BouttonUI : MonoBehaviour
 
     public void MainMenu()
     {
+        TimeManager.Instance.CurrentTime = 0;
+        TimeManager.Instance.GameOver = false;
+        _menuGameOver.SetActive(false);
         _mainMenu.SetActive(true);
     }
 

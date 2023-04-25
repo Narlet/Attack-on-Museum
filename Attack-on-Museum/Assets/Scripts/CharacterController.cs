@@ -11,6 +11,9 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private bool _oldLady = false;
     [SerializeField] private GameObject _lootablePrefab = null;
     [SerializeField] private Rigidbody2D _rb = null;
+    [SerializeField] private Sprite[] _sprites = null;
+    [SerializeField] private SpriteRenderer _spriterender = null;
+    [SerializeField] private Animation _animation = null;
 
     public float MaxWeight => _maxWeight;
     public float MaxSpeed => _maxSpeed;
@@ -97,18 +100,37 @@ public class CharacterController : MonoBehaviour
             if (Input.GetKey(KeyCode.Z))
             {
                 direction.y = 1;
+                if(_spriterender.sprite != _sprites[2])
+                {
+                    _spriterender.sprite = _sprites[2];
+                    _animation.Play("AnimBack");
+                }
             }
             if (Input.GetKey(KeyCode.Q))
             {
                 direction.x = -1;
+                if (_spriterender.sprite != _sprites[4])
+                {
+                    _spriterender.sprite = _sprites[4];
+                }
+                _spriterender.flipX = false;
             }
             if (Input.GetKey(KeyCode.S))
             {
                 direction.y = -1;
+                if (_spriterender.sprite != _sprites[0])
+                {
+                    _spriterender.sprite = _sprites[0];
+                }
             }
             if (Input.GetKey(KeyCode.D))
             {
                 direction.x = 1;
+                if (_spriterender.sprite != _sprites[4])
+                {
+                    _spriterender.sprite = _sprites[4];
+                }
+                _spriterender.flipX = true;
             }
         }
         _rb.velocity = direction * MaxSpeed * (1 - (CurrentWeight / MaxWeight));
@@ -162,4 +184,5 @@ public class CharacterController : MonoBehaviour
             TimeManager.Instance.Paused = !TimeManager.Instance.Paused;
         }
     }
+
 }

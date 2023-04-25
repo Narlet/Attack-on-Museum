@@ -100,7 +100,7 @@ public class TimeManager : Singleton<TimeManager>
         }
         else
         {
-            if(!Paused | !GameOver)
+            if(!Paused && !GameOver)
             CurrentTime += Time.deltaTime;
         }
     }
