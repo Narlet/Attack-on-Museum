@@ -27,7 +27,7 @@ public static class CameraSwitcher
 
         foreach (CinemachineVirtualCamera c in cameras)
         {
-            if (c != camera)
+            if (c != camera && c.Priority != 0)
             {
                 c.Priority = 0;
             }
