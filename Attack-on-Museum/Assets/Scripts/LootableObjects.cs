@@ -55,7 +55,7 @@ public class LootableObjects : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == ScoreManager.Instance.Character)
+        if (other.gameObject == ScoreManager.Instance.CurrentCharacter)
         {
             ScoreManager.Instance.CharacterController.Grab(this);
         }

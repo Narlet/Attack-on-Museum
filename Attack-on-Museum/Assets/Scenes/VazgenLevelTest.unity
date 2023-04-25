@@ -275,7 +275,6 @@ GameObject:
   - component: {fileID: 59450362}
   - component: {fileID: 59450361}
   - component: {fileID: 59450360}
-  - component: {fileID: 59450363}
   m_Layer: 0
   m_Name: CreditsButon
   m_TagString: Untagged
@@ -398,24 +397,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59450358}
   m_CullTransparentMesh: 1
---- !u!114 &59450363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59450358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda02b2f9c39ac241b05f040f09483de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _newGameLevel: Level1
-  _menuCredits: {fileID: 1401243750}
-  _mainMenu: {fileID: 373163027}
-  _menuPause: {fileID: 0}
-  _menuGameOver: {fileID: 0}
-  _scoreUI: {fileID: 0}
 --- !u!1 &68196347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1089,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 455903486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: NewGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &455903486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,11 +1247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda02b2f9c39ac241b05f040f09483de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newGameLevel: Level1
+  _newGameLevel: VazgenLevelTest
   _menuCredits: {fileID: 1401243750}
   _mainMenu: {fileID: 373163027}
   _menuPause: {fileID: 68196347}
-  _menuGameOver: {fileID: 0}
+  _menuGameOver: {fileID: 915780051}
   _scoreUI: {fileID: 25207713}
 --- !u!4 &496451616
 Transform:
@@ -1425,7 +1418,6 @@ GameObject:
   - component: {fileID: 560117343}
   - component: {fileID: 560117342}
   - component: {fileID: 560117341}
-  - component: {fileID: 560117344}
   m_Layer: 0
   m_Name: PlayButon
   m_TagString: Untagged
@@ -1548,24 +1540,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560117339}
   m_CullTransparentMesh: 1
---- !u!114 &560117344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560117339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda02b2f9c39ac241b05f040f09483de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _newGameLevel: Level1
-  _menuCredits: {fileID: 1401243750}
-  _mainMenu: {fileID: 373163027}
-  _menuPause: {fileID: 0}
-  _menuGameOver: {fileID: 0}
-  _scoreUI: {fileID: 0}
 --- !u!1 &627919585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,7 +2454,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 854008473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &854008473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13092,7 +13078,6 @@ GameObject:
   - component: {fileID: 1095563868}
   - component: {fileID: 1095563867}
   - component: {fileID: 1095563866}
-  - component: {fileID: 1095563869}
   m_Layer: 0
   m_Name: QuitButon
   m_TagString: Untagged
@@ -13215,24 +13200,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095563864}
   m_CullTransparentMesh: 1
---- !u!114 &1095563869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095563864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda02b2f9c39ac241b05f040f09483de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _newGameLevel: Level1
-  _menuCredits: {fileID: 1401243750}
-  _mainMenu: {fileID: 373163027}
-  _menuPause: {fileID: 0}
-  _menuGameOver: {fileID: 0}
-  _scoreUI: {fileID: 0}
 --- !u!1 &1301792795
 GameObject:
   m_ObjectHideFlags: 0
@@ -13316,7 +13283,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1301792798}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 496451615}
+        m_TargetAssemblyTypeName: BouttonUI, Assembly-CSharp
+        m_MethodName: BoutonQuit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1301792798
 MonoBehaviour:
   m_ObjectHideFlags: 0

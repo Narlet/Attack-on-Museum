@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 4345282070946158598, guid: 3283912d40a838b44b933a68943f655a, type: 3}
+  _currentCharacter: {fileID: 4345282070946158598, guid: 3283912d40a838b44b933a68943f655a, type: 3}
   _characterController: {fileID: 4345282070946158596, guid: 3283912d40a838b44b933a68943f655a, type: 3}
 --- !u!4 &601926615
 Transform:

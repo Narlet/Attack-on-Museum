@@ -9,6 +9,7 @@ public class ScoreManager : Singleton<ScoreManager>
     private float _currentScore = 0;
     private bool[] _keyItems = new bool[4];
     [SerializeField] private GameObject _character = null;
+    [SerializeField] private GameObject _currentCharacter = null;
     [SerializeField] private CharacterController _characterController = null;
 
     public GameObject Character
@@ -21,6 +22,19 @@ public class ScoreManager : Singleton<ScoreManager>
         set
         {
             _character = value;
+        }
+    }
+
+    public GameObject CurrentCharacter
+    {
+        get
+        {
+            return _currentCharacter;
+        }
+
+        set
+        {
+            _currentCharacter = value;
         }
     }
     public CharacterController CharacterController

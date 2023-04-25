@@ -21,8 +21,9 @@ public class BouttonUI : MonoBehaviour
 
     public void NewGameButton()
     {
+        TimeManager.Instance.GameOver = false;
+        TimeManager.Instance.Paused = false;
         SceneManager.LoadScene(_newGameLevel);
-
     }
 
     public void BoutonQuit()
@@ -67,6 +68,12 @@ public class BouttonUI : MonoBehaviour
     private void Update()
     {
         _scoreUI.text = "Score : " + ScoreManager.Instance.CurrentScore.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        TimeManager.Instance.OnGameOver -= GameOver;
+        TimeManager.Instance.OnPaused -= Pause;
     }
 }
 

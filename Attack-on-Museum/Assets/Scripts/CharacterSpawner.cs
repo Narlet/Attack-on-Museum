@@ -8,7 +8,7 @@ public class CharacterSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScoreManager.Instance.Character = Instantiate(ScoreManager.Instance.Character, _spawnPoint);
+        ScoreManager.Instance.CurrentCharacter = Instantiate(ScoreManager.Instance.Character, _spawnPoint);
     }
 
 }
