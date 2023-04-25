@@ -218,14 +218,8 @@ MonoBehaviour:
   _oldLady: 0
   _lootablePrefab: {fileID: 7065786077761388833, guid: 924bcf6e611e7de4e91e1defd4872a1b, type: 3}
   _rb: {fileID: 4345282070946158602}
-  _sprites:
-  - {fileID: 21300000, guid: e9c8bff202aa24949b2c3974d3daf01e, type: 3}
-  - {fileID: 21300000, guid: e3a6f6b846de03a4597f1be0f5926d10, type: 3}
-  - {fileID: 21300000, guid: 233ea4c9f15c49949a94d8cc9b53ffa5, type: 3}
-  - {fileID: 21300000, guid: 2c35bae41cc1489489a0cd333f5a5c2d, type: 3}
-  - {fileID: 21300000, guid: fc8e933e349b7754fb81571daa9385f9, type: 3}
-  - {fileID: 21300000, guid: 640267f0ca16bd34fb0498999bca51e2, type: 3}
   _spriterender: {fileID: 4345282070973603468}
+  _animator: {fileID: 315967159143698831}
 --- !u!50 &4345282070946158602
 Rigidbody2D:
   serializedVersion: 4
@@ -283,7 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4345282070973603471}
   - component: {fileID: 4345282070973603468}
-  - component: {fileID: 351784689000770426}
+  - component: {fileID: 315967159143698831}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -358,22 +352,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!111 &351784689000770426
-Animation:
+--- !u!95 &315967159143698831
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4345282070973603464}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 7c0168be51f3aa24db833587019b08a8, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 7c0168be51f3aa24db833587019b08a8, type: 2}
-  - {fileID: 7400000, guid: 39aa37abd5e6df647a2412b48b922e59, type: 2}
-  - {fileID: 7400000, guid: eaff16a31e3568647b9340c8b914fe35, type: 2}
-  - {fileID: 7400000, guid: 6a8306debfa967e4c931ae27426a1738, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee6d2a2f4811d5144a5e6356cf46aa26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

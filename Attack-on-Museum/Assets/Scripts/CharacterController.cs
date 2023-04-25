@@ -11,9 +11,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private bool _oldLady = false;
     [SerializeField] private GameObject _lootablePrefab = null;
     [SerializeField] private Rigidbody2D _rb = null;
-    [SerializeField] private Sprite[] _sprites = null;
     [SerializeField] private SpriteRenderer _spriterender = null;
-    [SerializeField] private Animation _animation = null;
+    [SerializeField] private Animator _animator = null;
 
     public float MaxWeight => _maxWeight;
     public float MaxSpeed => _maxSpeed;
@@ -94,50 +93,61 @@ public class CharacterController : MonoBehaviour
 */
     private void Move()
     {
+        //For the character movement
         Vector2 direction = Vector2.zero;
         if (!TimeManager.Instance.Paused && !TimeManager.Instance.GameOver)
         {
             if (Input.GetKey(KeyCode.Z))
             {
                 direction.y = 1;
-                if(_spriterender.sprite != _sprites[2])
-                {
-                    _spriterender.sprite = _sprites[2];
-                    _animation.Play("AnimBack");
-                }
             }
             if (Input.GetKey(KeyCode.Q))
             {
                 direction.x = -1;
-                if (_spriterender.sprite != _sprites[4])
-                {
-                    _spriterender.sprite = _sprites[4];
-                }
-                _spriterender.flipX = false;
             }
             if (Input.GetKey(KeyCode.S))
             {
                 direction.y = -1;
-                if (_spriterender.sprite != _sprites[0])
-                {
-                    _spriterender.sprite = _sprites[0];
-                }
             }
             if (Input.GetKey(KeyCode.D))
             {
                 direction.x = 1;
-                if (_spriterender.sprite != _sprites[4])
-                {
-                    _spriterender.sprite = _sprites[4];
-                }
-                _spriterender.flipX = true;
             }
         }
         _rb.velocity = direction * MaxSpeed * (1 - (CurrentWeight / MaxWeight));
+
+        //For the character animation
+        if(direction.x != 0 || direction.y != 0)
+        {
+            _animator.speed = 1 * (1 - (CurrentWeight / MaxWeight));
+            string animation = "Front";
+            if(direction.x > 0)
+            {
+                animation = "Right";
+            }
+            if(direction.x < 0)
+            {
+                animation = "Left";
+            }
+            if(direction.y > 0)
+            {
+                animation = "Back";
+            }
+            if(direction.y < 0)
+            {
+                animation = "Front";
+            }
+            _animator.Play(animation);
+        }
+        else
+        {
+            _animator.speed = 0;
+        }
     }
 
     private void PlusWeight()
     {
+        //Debug for adding weight
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
             CurrentWeight += 10;
@@ -146,6 +156,7 @@ public class CharacterController : MonoBehaviour
 
     private void MinusWeight()
     {
+        //Debug for losing weight
         if (Input.GetKeyDown(KeyCode.KeypadMinus))
         {
             CurrentWeight -= 10;
@@ -154,6 +165,7 @@ public class CharacterController : MonoBehaviour
 
     public void Grab(LootableObjects obj)
     {
+        //For the character to grab a LootableObject
         _objectsLooted.Add(obj.Data);
         CurrentWeight += obj.Data.Weight;
         ScoreManager.Instance.CurrentScore += obj.Data.Price;
@@ -163,6 +175,7 @@ public class CharacterController : MonoBehaviour
 
     private void Drop()
     {
+        //For the character to drop the oldest object he grabbed
         if (Input.GetKeyDown(KeyCode.A))
         {
             if (_objectsLooted.Count != 0)
@@ -179,6 +192,7 @@ public class CharacterController : MonoBehaviour
 
     private void Pause()
     {
+        //For the player to pause the game
         if (Input.GetKeyDown(KeyCode.P))
         {
             TimeManager.Instance.Paused = !TimeManager.Instance.Paused;
