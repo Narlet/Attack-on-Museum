@@ -1,2 +1,2 @@
+Assets/Scenes/HugoLevelDesign.unity
 Assets/Scenes/PersistentManager.unity
-Assets/Scenes/VazgenLevelTest.unity
