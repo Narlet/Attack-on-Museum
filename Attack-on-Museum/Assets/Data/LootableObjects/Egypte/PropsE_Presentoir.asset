@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbf1ba10840b1245b497eee8792fd64, type: 3}
   m_Name: PropsE_Presentoir
   m_EditorClassIdentifier: 
-  _weight: 0
-  _price: 0
+  _weight: 2
+  _price: 3
   _sprite: {fileID: 21300000, guid: 299dbce937cba8f45812bea95e484f93, type: 3}
