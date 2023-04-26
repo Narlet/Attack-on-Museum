@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbf1ba10840b1245b497eee8792fd64, type: 3}
   m_Name: PropsO_ PanelsOffice
   m_EditorClassIdentifier: 
-  _weight: 0
-  _price: 0
+  _weight: 7
+  _price: 2
   _sprite: {fileID: 21300000, guid: b16d88818baa3b54a8281b80ce8057c3, type: 3}

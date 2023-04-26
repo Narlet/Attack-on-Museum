@@ -7,37 +7,24 @@ using Unity.VisualScripting;
 
 public class CameraScript : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera _CC1;
-    [SerializeField] CinemachineVirtualCamera _CC2;
-    
+    [SerializeField] CinemachineVirtualCamera _cam;
+    [SerializeField] private CamController _camController;
 
 
     private void OnEnable()
     {
-        CameraSwitcher.Register(_CC1);
-        CameraSwitcher.Register(_CC2);
-        CameraSwitcher.SwitchCamera(_CC1);
     }
 
     private void OnDisable()
     {
-        CameraSwitcher.Unregister(_CC1);
-        CameraSwitcher.Unregister(_CC2);
         
     }
 
   
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-       if(CameraSwitcher.IsActiveCamera(_CC1))
-        {
-            CameraSwitcher.SwitchCamera(_CC2);
-        }
-       else if(CameraSwitcher.IsActiveCamera(_CC2))
-        {
-            CameraSwitcher.SwitchCamera(_CC1);
-        }
+        _camController.SwitchCam(_cam);
     }
 }
 

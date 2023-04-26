@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbf1ba10840b1245b497eee8792fd64, type: 3}
   m_Name: PropsPH_Plot
   m_EditorClassIdentifier: 
-  _weight: 0
-  _price: 0
+  _weight: 4
+  _price: 2
   _sprite: {fileID: 21300000, guid: 49812098e6c8a5d4485c5f130f4223de, type: 3}
