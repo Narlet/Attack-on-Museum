@@ -13,7 +13,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Rigidbody2D _rb = null;
     [SerializeField] private SpriteRenderer _spriterender = null;
     [SerializeField] private Animator _animator = null;
-    [SerializeField] private AudioSource _audio = null;
+    [SerializeField] private AudioSource _audioMovement = null;
+    [SerializeField] private AudioSource _audioGrab = null;
 
     public float MaxWeight => _maxWeight;
     public float MaxSpeed => _maxSpeed;
@@ -120,8 +121,8 @@ public class CharacterController : MonoBehaviour
         //For the character animation
         if(direction.x != 0 || direction.y != 0)
         {
-            _audio.volume = 0.15f;
-            _audio.pitch = 1 * (1 - (CurrentWeight / MaxWeight));
+            _audioMovement.volume = 0.5f;
+            _audioMovement.pitch = 1 * (1 - (CurrentWeight / MaxWeight));
             _animator.speed = 1 * (1 - (CurrentWeight / MaxWeight));
             string animation = "Front";
             if(direction.x > 0)
@@ -145,7 +146,7 @@ public class CharacterController : MonoBehaviour
         else
         {
             _animator.speed = 0;
-            _audio.volume = 0;
+            _audioMovement.volume = 0;
         }
     }
 
@@ -173,6 +174,7 @@ public class CharacterController : MonoBehaviour
         _objectsLooted.Add(obj.Data);
         CurrentWeight += obj.Data.Weight;
         ScoreManager.Instance.CurrentScore += obj.Data.Price;
+        _audioGrab.Play();
         Destroy(obj.gameObject);
         Debug.Log("Object Looted : " + obj.gameObject.name);
     }
