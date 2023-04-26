@@ -120,7 +120,7 @@ public class CharacterController : MonoBehaviour
         //For the character animation
         if(direction.x != 0 || direction.y != 0)
         {
-            _audio.volume = 1;
+            _audio.volume = 0.15f;
             _audio.pitch = 1 * (1 - (CurrentWeight / MaxWeight));
             _animator.speed = 1 * (1 - (CurrentWeight / MaxWeight));
             string animation = "Front";
