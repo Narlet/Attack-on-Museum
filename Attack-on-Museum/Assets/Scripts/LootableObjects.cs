@@ -6,9 +6,13 @@ public class LootableObjects : MonoBehaviour
 {
     [SerializeField] private float _grabRange = 1;
     [SerializeField] private LootableObjectsData _data = null;
+    [SerializeField] private KeyItem _key = null;
     [SerializeField] private CircleCollider2D _grabCollider = null;
     [SerializeField] private SpriteRenderer _spriteRender = null;
     [SerializeField] private float _maxTimeBeforeGrab = 2f;
+    [SerializeField] private GameObject _floatingText1 = null;
+    [SerializeField] private GameObject _floatingText2 = null;
+    [SerializeField] private GameObject _floatingText3 = null;
     private float _currentTimeBeforeGrab = 0f;
 
     public LootableObjectsData Data
@@ -57,7 +61,26 @@ public class LootableObjects : MonoBehaviour
     {
         if (other.gameObject == ScoreManager.Instance.CurrentCharacter)
         {
+            if(Data.Price > 25)
+            {
+                if(Data.Price > 100)
+                {
+                    Instantiate(_floatingText3, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(_floatingText2, transform.position, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Instantiate(_floatingText1, transform.position, Quaternion.identity);
+            }
             ScoreManager.Instance.CharacterController.Grab(this);
+            if(_key != null)
+            {
+                ScoreManager.Instance.KeyItems[_key.KeyItemNumber] = true;
+            }
         }
     }
 }
