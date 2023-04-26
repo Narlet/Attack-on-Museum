@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afbf1ba10840b1245b497eee8792fd64, type: 3}
-  m_Name: PropsMA_UndyneArmor
+  m_Script: {fileID: 11500000, guid: fdf42ac502fe50547bf01bfb7b17e961, type: 3}
+  m_Name: Key_MoyenAge
   m_EditorClassIdentifier: 
-  _weight: 20
-  _price: 100
-  _sprite: {fileID: 21300000, guid: 8c9511be1114c944992baf77ab783381, type: 3}
+  _keyItemNumber: 0
