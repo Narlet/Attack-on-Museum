@@ -221,6 +221,7 @@ MonoBehaviour:
   _rb: {fileID: 4345282070946158602}
   _spriterender: {fileID: 4345282070973603468}
   _animator: {fileID: 315967159143698831}
+  _audio: {fileID: 4471624385354466}
 --- !u!50 &4345282070946158602
 Rigidbody2D:
   serializedVersion: 4
