@@ -1,2 +1,2 @@
-Assets/Scenes/HugoLevelDesign.unity
+Assets/Scenes/LevelCamera.unity
 Assets/Scenes/PersistentManager.unity
