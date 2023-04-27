@@ -1,2 +1,2 @@
 Assets/Scenes/DebugPersistentManager.unity
-Assets/Scenes/LevelCamera.unity
+Assets/Scenes/SceneTest/VazgenLevelTest.unity
