@@ -15,7 +15,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Animator _animator = null;
     [SerializeField] private AudioSource _audioMovement = null;
     [SerializeField] private AudioSource _audioGrab = null;
-
+    
     public float MaxWeight => _maxWeight;
     public float MaxSpeed => _maxSpeed;
     public float CurrentWeight
@@ -201,8 +201,10 @@ public class CharacterController : MonoBehaviour
         //For the player to pause the game
         if (Input.GetKeyDown(KeyCode.P))
         {
+            
             TimeManager.Instance.Paused = !TimeManager.Instance.Paused;
         }
+     
     }
 
 }

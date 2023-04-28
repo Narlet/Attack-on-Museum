@@ -1,53 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BouttonUI : MonoBehaviour
+public class BoutonMenuPause : MonoBehaviour
 {
-    [SerializeField] private string _newGameLevel = "GameLevel";
-    [SerializeField] private string _mainMenu = " MainMenu";
-    [SerializeField] private GameObject _menuCredits = null;
+    [SerializeField] private string _mainMenu = "MainMenu";
     [SerializeField] private GameObject _menuPause = null;
     [SerializeField] private GameObject _menuGameOver = null;
     [SerializeField] private TextMeshProUGUI _scoreUI = null;
+
+
 
     private void Start()
     {
         TimeManager.Instance.OnGameOver += GameOver;
         TimeManager.Instance.OnPaused += Pause;
     }
-
-    public void NewGameButton()
-    {
-        SceneManager.LoadScene(_newGameLevel);
-        TimeManager.Instance.CurrentTime = 0;
-        _menuGameOver.SetActive(false);
-        TimeManager.Instance.GameOver = false;
-        TimeManager.Instance.Paused = false;
-        
-    }
-
     public void BoutonQuit()
     {
         Application.Quit();
         Debug.Log(" bien joué");
     }
 
-    public void Credits()
-    {
-        _menuCredits.SetActive(true);
-       
-    }
-
     public void MainMenu()
     {
         SceneManager.LoadScene(_mainMenu);
-       /* TimeManager.Instance.CurrentTime = 0;
-        TimeManager.Instance.GameOver = false;
-        _menuGameOver.SetActive(false);*/
-        
     }
 
     public void Pause()
@@ -61,7 +41,6 @@ public class BouttonUI : MonoBehaviour
             _menuPause.SetActive(false);
         }
     }
-
     public void Resume()
     {
         _menuPause.SetActive(false);
@@ -83,7 +62,19 @@ public class BouttonUI : MonoBehaviour
         TimeManager.Instance.OnGameOver -= GameOver;
         TimeManager.Instance.OnPaused -= Pause;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
-
-
-

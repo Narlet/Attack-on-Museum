@@ -223,6 +223,7 @@ MonoBehaviour:
   _animator: {fileID: 315967159143698831}
   _audioMovement: {fileID: 4471624385354466}
   _audioGrab: {fileID: 2455558731641608061}
+  _menuPause: {fileID: 8323913037334428503, guid: f9688b090bfce664fa7b5fcc50f0bc53, type: 3}
 --- !u!50 &4345282070946158602
 Rigidbody2D:
   serializedVersion: 4

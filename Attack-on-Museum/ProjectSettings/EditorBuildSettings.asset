@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneTest/LevelCamera.unity
     guid: 722e29209707ced4fa530eb62f37a577
+  - enabled: 1
+    path: Assets/Scenes/SceneFinal/GameLevel.unity
+    guid: 3d7f7ba0a0b6ae84eb8911498eaf5708
+  - enabled: 1
+    path: Assets/Scenes/SceneFinal/MainMenu.unity
+    guid: 413213801ae58ad4da9e8fb76f263499
   m_configObjects: {}
