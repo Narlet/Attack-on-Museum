@@ -7,37 +7,23 @@ using UnityEngine.UI;
 using System.Threading.Tasks;
 using UnityEngine.Video;
 
-public class BoutonMainMenu : MonoBehaviour
+public class Boutonvideo : MonoBehaviour
 {
     [SerializeField] private string _newGameLevel = "GameLevel";
     [SerializeField] private string _mainMenu = "MainMenu";
     [SerializeField] private GameObject _menuCredits = null;
     [SerializeField] private GameObject _mainMenuUi = null;
-    [SerializeField] private GameObject _video = null;
     [SerializeField] private AudioSource _audioClick = null;
-    [SerializeField] RawImage _rawImage = null;
-    [SerializeField] VideoPlayer _videoPlayer = null;
     [SerializeField] AudioSource _music = null;
    
     private void Start()
     {
-         StartCoroutine(PlayVideo());
+         
         Invoke("MainMenu", 6.0f);
+        Invoke("Music", 0f);
     }
 
-   IEnumerator PlayVideo()
-    {
-        _videoPlayer.Prepare();
-        WaitForSeconds waitForSeconds = new WaitForSeconds(1);
-        while (!_videoPlayer.isPrepared)
-        {
-            yield return waitForSeconds;
-            break;
-        }
-        _rawImage.texture = _videoPlayer.texture;
-        _videoPlayer.Play();
-      
-    }
+  
 
     public async void WaitPlay(float duration)
     {
@@ -73,8 +59,12 @@ public class BoutonMainMenu : MonoBehaviour
 
     public void MainMenu()
     {
-        _video.SetActive(false);
+       
         _mainMenuUi.SetActive(true);
+       
+    }
+    public void Music()
+    {
         _music.Play();
     }
     
