@@ -8,11 +8,14 @@ public class LootableObjects : MonoBehaviour
     [SerializeField] private LootableObjectsData _data = null;
     [SerializeField] private KeyItem _key = null;
     [SerializeField] private CircleCollider2D _grabCollider = null;
-    [SerializeField] private SpriteRenderer _spriteRender = null;
+    [SerializeField] private SpriteRenderer _spriteRenderer = null;
     [SerializeField] private float _maxTimeBeforeGrab = 2f;
     [SerializeField] private GameObject _floatingText1 = null;
     [SerializeField] private GameObject _floatingText2 = null;
     [SerializeField] private GameObject _floatingText3 = null;
+    [SerializeField] private float _shrinkSpeed = 0.001f;
+    [SerializeField] private float _spinSpeed = 1f;
+    private bool _animDestroy = false;
     private float _currentTimeBeforeGrab = 0f;
 
     public LootableObjectsData Data
@@ -33,12 +36,12 @@ public class LootableObjects : MonoBehaviour
     private void Awake()
     {
         _grabCollider.radius = _grabRange;
-        _spriteRender.sprite = _data.Sprite;
+        _spriteRenderer.sprite = _data.Sprite;
         _grabCollider.enabled = false;
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -54,6 +57,12 @@ public class LootableObjects : MonoBehaviour
             {
                 _currentTimeBeforeGrab += Time.deltaTime;
             }
+        }
+
+        if(_animDestroy)
+        {
+            _spriteRenderer.transform.localScale -= new Vector3(_shrinkSpeed, _shrinkSpeed, _shrinkSpeed);
+            _spriteRenderer.transform.Rotate(Vector3.forward * _spinSpeed);
         }
     }
 
@@ -76,11 +85,13 @@ public class LootableObjects : MonoBehaviour
             {
                 Instantiate(_floatingText1, transform.position, Quaternion.identity);
             }
+            _animDestroy = true;
             ScoreManager.Instance.CharacterController.Grab(this);
             if(_key != null)
             {
                 ScoreManager.Instance.KeyItems[_key.KeyItemNumber] = true;
             }
+            
         }
     }
 }
