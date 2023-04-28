@@ -7,7 +7,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _maxSpeed = 5;
     [SerializeField] private float _maxWeight = 100;
     [SerializeField] private float _currentWeight = 0;
-    [SerializeField] private List<LootableObjectsData> _objectsLooted = new List<LootableObjectsData>();
+    [SerializeField] private List<LootableObjectsData> _objectsLooted = null;
     [SerializeField] private bool _oldLady = false;
     [SerializeField] private GameObject _lootablePrefab = null;
     [SerializeField] private Rigidbody2D _rb = null;
@@ -175,7 +175,7 @@ public class CharacterController : MonoBehaviour
         CurrentWeight += obj.Data.Weight;
         ScoreManager.Instance.CurrentScore += obj.Data.Price;
         _audioGrab.Play();
-        Destroy(obj.gameObject);
+        Destroy(obj.gameObject, 0.5f);
         Debug.Log("Object Looted : " + obj.gameObject.name);
     }
 
