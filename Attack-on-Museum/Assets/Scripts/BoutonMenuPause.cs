@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class BoutonMenuPause : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class BoutonMenuPause : MonoBehaviour
     [SerializeField] private GameObject _menuPause = null;
     [SerializeField] private GameObject _menuGameOver = null;
     [SerializeField] private TextMeshProUGUI _scoreUI = null;
+    [SerializeField] private AudioSource _audioClick = null;
 
 
 
@@ -19,30 +20,40 @@ public class BoutonMenuPause : MonoBehaviour
         TimeManager.Instance.OnGameOver += GameOver;
         TimeManager.Instance.OnPaused += Pause;
     }
-    public void BoutonQuit()
+    public async void BoutonQuit(float duration)
     {
+        _audioClick.Play();
+        await Task.Delay((int)(duration * 1000));
         Application.Quit();
         Debug.Log(" bien joué");
     }
 
-    public void MainMenu()
+    public async void MainMenu(float duration)
     {
+        _audioClick.Play();
+        await Task.Delay((int)(duration * 1000));
         SceneManager.LoadScene(_mainMenu);
     }
 
-    public void Pause()
+    public  void Pause()
     {
         if (TimeManager.Instance.Paused)
         {
+            
+            
             _menuPause.SetActive(true);
         }
         else
         {
+            
+          
             _menuPause.SetActive(false);
         }
     }
-    public void Resume()
+    public async void Resume(float duration )
     {
+        _audioClick.Play();
+        await Task.Delay((int)(duration * 1000));
         _menuPause.SetActive(false);
         TimeManager.Instance.Paused = false;
     }

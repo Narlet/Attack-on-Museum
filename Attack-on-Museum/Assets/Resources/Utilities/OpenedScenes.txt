@@ -1,3 +1,1 @@
-Assets/Scenes/DebugPersistentManager.unity
-Assets/Scenes/SceneTest/LevelCamera.unity
-Assets/Scenes/SceneTest/HugoLevelDesign.unity
+Assets/Scenes/SceneFinal/MainMenu.unity
