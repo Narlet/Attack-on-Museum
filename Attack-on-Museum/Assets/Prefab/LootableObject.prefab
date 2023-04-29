@@ -155,5 +155,6 @@ MonoBehaviour:
   _floatingText1: {fileID: 583158425933868034, guid: e3a8d10ad7a2eec48991a43d43b7d68f, type: 3}
   _floatingText2: {fileID: 583158425933868034, guid: aa4a1a79ac7c2f24aa8e6336635e9576, type: 3}
   _floatingText3: {fileID: 583158425933868034, guid: bb526fff2798a6740852ed855c0d8a58, type: 3}
-  _shrinkSpeed: 0.01
+  _floatingText4: {fileID: 583158425933868034, guid: ec802c120b7650942a8803094ba6a9c8, type: 3}
+  _shrinkSpeed: 0.005
   _spinSpeed: 1

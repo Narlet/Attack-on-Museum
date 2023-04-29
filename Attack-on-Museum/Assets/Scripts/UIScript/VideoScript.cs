@@ -8,10 +8,6 @@ public class VideoScript : MonoBehaviour
 {
     [SerializeField] RawImage _image = null;
     [SerializeField] VideoPlayer _video = null;
-    [SerializeField] GameObject _mainMenu = null;
-
-
-
 
     private void Start()
     {

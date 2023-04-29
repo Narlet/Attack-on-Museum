@@ -21,8 +21,12 @@ public class BoutonMainMenu : MonoBehaviour
    
     private void Start()
     {
-         StartCoroutine(PlayVideo());
-        Invoke("MainMenu", 6.0f);
+        StartCoroutine(PlayVideo());
+        Invoke(_mainMenu, 6.0f);
+        ScoreManager.Instance.KeyItems = new bool[4];
+        ScoreManager.Instance.CurrentScore = 0;
+        TimeManager.Instance.Paused = true;
+        TimeManager.Instance.CurrentTime = 0;
     }
 
    IEnumerator PlayVideo()

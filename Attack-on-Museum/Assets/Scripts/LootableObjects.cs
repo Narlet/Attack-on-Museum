@@ -13,6 +13,7 @@ public class LootableObjects : MonoBehaviour
     [SerializeField] private GameObject _floatingText1 = null;
     [SerializeField] private GameObject _floatingText2 = null;
     [SerializeField] private GameObject _floatingText3 = null;
+    [SerializeField] private GameObject _floatingText4 = null;
     [SerializeField] private float _shrinkSpeed = 0.001f;
     [SerializeField] private float _spinSpeed = 1f;
     private bool _animDestroy = false;
@@ -70,28 +71,34 @@ public class LootableObjects : MonoBehaviour
     {
         if (other.gameObject == ScoreManager.Instance.CurrentCharacter)
         {
-            if(Data.Price > 25)
+            if (Data.Weight + ScoreManager.Instance.CharacterController.CurrentWeight <= ScoreManager.Instance.CharacterController.MaxWeight - 5)
             {
-                if(Data.Price > 100)
+                if (Data.Price > 25)
                 {
-                    Instantiate(_floatingText3, transform.position, Quaternion.identity);
+                    if (Data.Price > 100)
+                    {
+                        Instantiate(_floatingText3, transform.position, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(_floatingText2, transform.position, Quaternion.identity);
+                    }
                 }
                 else
                 {
-                    Instantiate(_floatingText2, transform.position, Quaternion.identity);
+                    Instantiate(_floatingText1, transform.position, Quaternion.identity);
+                }
+                _animDestroy = true;
+                ScoreManager.Instance.CharacterController.Grab(this);
+                if (_key != null)
+                {
+                    ScoreManager.Instance.KeyItems[_key.KeyItemNumber] = true;
                 }
             }
             else
             {
-                Instantiate(_floatingText1, transform.position, Quaternion.identity);
+                Instantiate(_floatingText4, transform.position, Quaternion.identity);
             }
-            _animDestroy = true;
-            ScoreManager.Instance.CharacterController.Grab(this);
-            if(_key != null)
-            {
-                ScoreManager.Instance.KeyItems[_key.KeyItemNumber] = true;
-            }
-            
         }
     }
 }

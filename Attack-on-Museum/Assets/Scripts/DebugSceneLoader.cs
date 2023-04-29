@@ -12,5 +12,4 @@ public class DebugSceneLoader : MonoBehaviour
         TimeManager.Instance.GameOver = false;
         TimeManager.Instance.Paused = false;
     }
-
 }

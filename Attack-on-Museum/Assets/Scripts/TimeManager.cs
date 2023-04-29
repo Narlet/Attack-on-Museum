@@ -10,6 +10,7 @@ public class TimeManager : Singleton<TimeManager>
     private float _currentTime = 0;
     private bool _gameOver = false;
     private bool _paused = false;
+    private bool _victory = false;
 
     public float MaxTime => _maxTime;
     public float CurrentTime
@@ -44,6 +45,24 @@ public class TimeManager : Singleton<TimeManager>
         }
     }
 
+    public bool Victory
+    {
+        get
+        {
+            return _victory;
+        }
+        set
+        {
+            _victory = value;
+            if (_onVictory != null)
+            {
+                if (Victory)
+                {
+                    _onVictory();
+                }
+            }
+        }
+    }
     public bool Paused
     {
         get
@@ -88,6 +107,20 @@ public class TimeManager : Singleton<TimeManager>
             _onPaused -= value;
         }
     }
+
+    private event Action _onVictory = null;
+    public event Action OnVictory
+    {
+        add
+        {
+            _onVictory -= value;
+            _onVictory += value;
+        }
+        remove
+        {
+            _onVictory -= value;
+        }
+    }
     #endregion Events
 
     // Update is called once per frame
@@ -100,7 +133,7 @@ public class TimeManager : Singleton<TimeManager>
         }
         else
         {
-            if(!Paused && !GameOver)
+            if(!Paused && !GameOver && !Victory)
             CurrentTime += Time.deltaTime;
         }
     }

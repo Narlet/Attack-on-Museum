@@ -9,6 +9,7 @@ public class CharacterSpawner : MonoBehaviour
     void Start()
     {
         ScoreManager.Instance.CurrentCharacter = Instantiate(ScoreManager.Instance.Character, _spawnPoint);
+        TimeManager.Instance.Paused = false;
     }
 
 }

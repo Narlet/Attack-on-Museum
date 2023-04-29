@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 2023041481782741535}
   _animator: {fileID: 2023041482046661223}
-  _doorNumber: 4
+  _doorNumber: 3
 --- !u!61 &2023041481782741535
 BoxCollider2D:
   m_ObjectHideFlags: 0

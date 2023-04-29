@@ -19,7 +19,7 @@ public class Boutonvideo : MonoBehaviour
     private void Start()
     {
          
-        Invoke("MainMenu", 6.0f);
+        Invoke(_mainMenu, 6.0f);
         Invoke("Music", 0f);
     }
 

@@ -11,7 +11,6 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private bool _oldLady = false;
     [SerializeField] private GameObject _lootablePrefab = null;
     [SerializeField] private Rigidbody2D _rb = null;
-    [SerializeField] private SpriteRenderer _spriterender = null;
     [SerializeField] private Animator _animator = null;
     [SerializeField] private AudioSource _audioMovement = null;
     [SerializeField] private AudioSource _audioGrab = null;
@@ -53,10 +52,10 @@ public class CharacterController : MonoBehaviour
     {
         Move();
         Pause();
-        if (!TimeManager.Instance.Paused && !TimeManager.Instance.GameOver)
+        if (!TimeManager.Instance.Paused && !TimeManager.Instance.GameOver && !TimeManager.Instance.Victory)
         {
-            PlusWeight();
-            MinusWeight();
+            /*PlusWeight();
+            MinusWeight();*/
             Drop();
         }
     }
@@ -97,13 +96,13 @@ public class CharacterController : MonoBehaviour
     {
         //For the character movement
         Vector2 direction = Vector2.zero;
-        if (!TimeManager.Instance.Paused && !TimeManager.Instance.GameOver)
+        if (!TimeManager.Instance.Paused && !TimeManager.Instance.GameOver && !TimeManager.Instance.Victory)
         {
-            if (Input.GetKey(KeyCode.Z))
+            if (Input.GetKey(KeyCode.W))
             {
                 direction.y = 1;
             }
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(KeyCode.A))
             {
                 direction.x = -1;
             }
@@ -149,7 +148,7 @@ public class CharacterController : MonoBehaviour
             _audioMovement.volume = 0;
         }
     }
-
+    /*
     private void PlusWeight()
     {
         //Debug for adding weight
@@ -167,7 +166,7 @@ public class CharacterController : MonoBehaviour
             CurrentWeight -= 10;
         }
     }
-
+    */
     public void Grab(LootableObjects obj)
     {
         //For the character to grab a LootableObject
@@ -182,7 +181,7 @@ public class CharacterController : MonoBehaviour
     private void Drop()
     {
         //For the character to drop the oldest object he grabbed
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (_objectsLooted.Count != 0)
             {
@@ -199,9 +198,8 @@ public class CharacterController : MonoBehaviour
     private void Pause()
     {
         //For the player to pause the game
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
             TimeManager.Instance.Paused = !TimeManager.Instance.Paused;
         }
      

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LevelExit : MonoBehaviour
 {
-    [SerializeField] private Collider2D _collider = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +18,9 @@ public class LevelExit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == ScoreManager.Instance.Character)
+        if (collision.gameObject == ScoreManager.Instance.CurrentCharacter)
         {
-            TimeManager.Instance.GameOver = true;
+            TimeManager.Instance.Victory = true;
         }
     }
 }

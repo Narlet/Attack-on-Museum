@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276fb81451fc8864186aaf601c3f17d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newGameLevel: GameLevel
+  _newGameLevel: HugoLevelDesign
   _mainMenu: MainMenu
   _menuCredits: {fileID: 939437572}
   _mainMenuUi: {fileID: 218949186}
