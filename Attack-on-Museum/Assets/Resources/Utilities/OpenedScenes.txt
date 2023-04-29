@@ -1,1 +1,2 @@
 Assets/Scenes/DebugPersistentManager.unity
+Assets/Scenes/SceneTest/HugoLevelDesign.unity

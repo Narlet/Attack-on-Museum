@@ -22,7 +22,7 @@ public class TimeManager : Singleton<TimeManager>
 
         set
         {
-            _currentTime = Mathf.Clamp(value, 0, float.MaxValue);
+            _currentTime = Mathf.Clamp(value, 0, MaxTime);
         }
     }
 

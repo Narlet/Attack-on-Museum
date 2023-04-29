@@ -219,7 +219,6 @@ MonoBehaviour:
   _oldLady: 0
   _lootablePrefab: {fileID: 7065786077761388833, guid: 924bcf6e611e7de4e91e1defd4872a1b, type: 3}
   _rb: {fileID: 4345282070946158602}
-  _spriterender: {fileID: 4345282070973603468}
   _animator: {fileID: 315967159143698831}
   _audioMovement: {fileID: 4471624385354466}
   _audioGrab: {fileID: 2455558731641608061}
@@ -484,7 +483,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2574665973567359144, guid: 29696700341fd914fb0aca19624ad3c1, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9e470846cc36b364d81f73f43b3a1c24, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.005
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
