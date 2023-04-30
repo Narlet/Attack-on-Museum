@@ -4,23 +4,19 @@ using UnityEngine;
 
 public class LevelExit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == ScoreManager.Instance.CurrentCharacter)
         {
-            TimeManager.Instance.Victory = true;
+            if (ScoreManager.Instance.CurrentScore > 0)
+            {
+                TimeManager.Instance.Victory = true;
+            }
+            else
+            {
+                TimeManager.Instance.GameOver = true;
+            }
         }
     }
 }
