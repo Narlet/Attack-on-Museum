@@ -121,8 +121,8 @@ public class CharacterController : MonoBehaviour
         if(direction.x != 0 || direction.y != 0)
         {
             _audioMovement.volume = 0.5f;
-            _audioMovement.pitch = 1 * (1 - (CurrentWeight / MaxWeight));
-            _animator.speed = 1 * (1 - (CurrentWeight / MaxWeight));
+            _audioMovement.pitch = 2 * (1 - (CurrentWeight / MaxWeight));
+            _animator.speed = 2 * (1 - (CurrentWeight / MaxWeight));
             string animation = "Front";
             if(direction.x > 0)
             {
@@ -172,7 +172,7 @@ public class CharacterController : MonoBehaviour
         //For the character to grab a LootableObject
         _objectsLooted.Add(obj.Data);
         CurrentWeight += obj.Data.Weight;
-        ScoreManager.Instance.CurrentScore += obj.Data.Price;
+        ScoreManager.Instance.CurrentScore += obj.Data.Price*10;
         _audioGrab.Play();
         Destroy(obj.gameObject, 0.5f);
         Debug.Log("Object Looted : " + obj.gameObject.name);
@@ -189,7 +189,7 @@ public class CharacterController : MonoBehaviour
                 obj.GetComponent<LootableObjects>().Data = _objectsLooted[0];
                 Instantiate(obj, transform.position, transform.rotation);
                 _currentWeight -= _objectsLooted[0].Weight;
-                ScoreManager.Instance.CurrentScore -= _objectsLooted[0].Price;
+                ScoreManager.Instance.CurrentScore -= _objectsLooted[0].Price*10;
                 _objectsLooted.RemoveAt(0);
             }
         }

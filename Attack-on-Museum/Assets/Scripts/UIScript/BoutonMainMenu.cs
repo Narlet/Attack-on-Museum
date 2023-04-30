@@ -18,6 +18,7 @@ public class BoutonMainMenu : MonoBehaviour
     [SerializeField] RawImage _rawImage = null;
     [SerializeField] VideoPlayer _videoPlayer = null;
     [SerializeField] AudioSource _music = null;
+    [SerializeField] TextMeshProUGUI _bestScoreUI = null;
    
     private void Start()
     {
@@ -27,6 +28,7 @@ public class BoutonMainMenu : MonoBehaviour
         ScoreManager.Instance.CurrentScore = 0;
         TimeManager.Instance.Paused = true;
         TimeManager.Instance.CurrentTime = 0;
+        _bestScoreUI.text = "Best Score : " + ScoreManager.Instance.BestScore.ToString();
     }
 
    IEnumerator PlayVideo()

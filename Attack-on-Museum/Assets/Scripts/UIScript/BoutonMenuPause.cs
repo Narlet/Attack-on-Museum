@@ -15,6 +15,7 @@ public class BoutonMenuPause : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _victoryScoreUI = null;
     [SerializeField] private AudioSource _audioClick = null;
     [SerializeField] private AudioSource _backgroundMusic = null;
+    [SerializeField] private AudioSource _victoryMusic = null;
 
 
 
@@ -62,6 +63,12 @@ public class BoutonMenuPause : MonoBehaviour
 
     public void Victory()
     {
+        if (ScoreManager.Instance.BestScore < ScoreManager.Instance.CurrentScore)
+        {
+            ScoreManager.Instance.BestScore = ScoreManager.Instance.CurrentScore;
+        }
+        _backgroundMusic.Pause();
+        _victoryMusic.Play();
         _victoryUI.SetActive(TimeManager.Instance.Victory);
     }
 
