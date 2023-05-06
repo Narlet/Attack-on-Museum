@@ -13,9 +13,14 @@ public class Boutonvideo : MonoBehaviour
     [SerializeField] private string _mainMenu = "MainMenu";
     [SerializeField] private GameObject _menuCredits = null;
     [SerializeField] private GameObject _mainMenuUi = null;
+    [SerializeField] private GameObject _tutorialUi = null;
+    [SerializeField] private TextMeshProUGUI _tutorialText = null;
     [SerializeField] private AudioSource _audioClick = null;
     [SerializeField] AudioSource _music = null;
-   
+    [SerializeField] private Button _playButton = null;
+    [SerializeField] private Button _creditButton = null;
+    [SerializeField] private Button _exitButton = null;
+
     private void Start()
     {
          
@@ -28,7 +33,15 @@ public class Boutonvideo : MonoBehaviour
     public async void WaitPlay(float duration)
     {
         _audioClick.Play();
-        await Task.Delay((int)(duration * 1000));
+        _tutorialUi.SetActive(true);
+        _playButton.interactable = false;
+        _creditButton.interactable = false;
+        _exitButton.interactable = false;
+        await Task.Delay((int)(duration * 4000));
+        _tutorialText.text = "Pick objects and get keys to open new rooms, but beware...";
+        await Task.Delay((int)(duration * 4000));
+        _tutorialText.text = "Things can be heavier than you thought...";
+        await Task.Delay((int)(duration * 4000));
         SceneManager.LoadScene(_newGameLevel);
     }
 
