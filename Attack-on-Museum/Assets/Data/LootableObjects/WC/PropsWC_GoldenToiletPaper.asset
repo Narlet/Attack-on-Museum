@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PropsWC_GoldenToiletPaper
   m_EditorClassIdentifier: 
   _weight: 5
-  _price: 8
+  _price: 100
   _sprite: {fileID: 21300000, guid: b9f635755dd3ef0479ee14d7215bb258, type: 3}

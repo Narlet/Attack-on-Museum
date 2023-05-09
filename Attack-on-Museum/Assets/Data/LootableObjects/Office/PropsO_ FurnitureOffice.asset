@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PropsO_ FurnitureOffice
   m_EditorClassIdentifier: 
   _weight: 10
-  _price: 20
+  _price: 50
   _sprite: {fileID: 21300000, guid: 7cfb2be00d4714d41b95bd4969b9fcb5, type: 3}

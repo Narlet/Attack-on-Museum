@@ -187,7 +187,7 @@ public class CharacterController : MonoBehaviour
             {
                 GameObject obj = _lootablePrefab;
                 obj.GetComponent<LootableObjects>().Data = _objectsLooted[0];
-                Instantiate(obj, transform.position, Random.rotation);
+                Instantiate(obj, transform.position, new Quaternion(0,0,Random.Range(0,360),0));
                 _currentWeight -= _objectsLooted[0].Weight;
                 ScoreManager.Instance.CurrentScore -= _objectsLooted[0].Price*10;
                 _objectsLooted.RemoveAt(0);
